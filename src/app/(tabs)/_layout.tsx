@@ -54,6 +54,18 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="(user)"
+        options={{
+          title: 'User',
+          headerShown: false,
+          tabBarActiveBackgroundColor: "#fff",
+          tabBarActiveTintColor: "blue",
+          tabBarInactiveTintColor: "#000",
+          tabBarInactiveBackgroundColor: "#fff",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
