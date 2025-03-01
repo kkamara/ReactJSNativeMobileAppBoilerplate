@@ -21,13 +21,13 @@
 * [ReactJS Native Setup Virtual Mobile App](https://reactnative.dev/docs/environment-setup?guide=native&platform=android)
 
 ```bash
-npm install
+yarn install
 ```
 
 ## Usage
 
 ```bash
-npm run android
+yarn run android
 ```
 
 ## Misc
@@ -39,8 +39,6 @@ This app was created with `npx create-expo-app ReactJSNativeMobileBoilerplate --
 [See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
 
 [See MRVL Web](https://github.com/kkamara/mrvl-web).
-
-[See Github to Bitbucket Backup Repo Updater](https://github.com/kkamara/ghbbupdater).
 
 [See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
 
