@@ -63,7 +63,7 @@ export default function TabLayout() {
           tabBarActiveTintColor: "blue",
           tabBarInactiveTintColor: "#000",
           tabBarInactiveBackgroundColor: "#fff",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </Tabs>
