@@ -1,6 +1,6 @@
 <img src="https://github.com/kkamara/useful/blob/main/FlexboxDirectionMobileApp.png?raw=true" alt="FlexboxDirectionMobileApp.png" width=""/>
 
-# ReactJSNativeMobileBoilerplate
+# ReactJSNativeMobileAppBoilerplate
 
 (16-Aug-2024) TypeScript ReactJS Native mobile app with file-based routing.
 
@@ -32,7 +32,7 @@ yarn run android
 
 ## Misc
 
-This app was created with `npx create-expo-app ReactJSNativeMobileBoilerplate --template` command and choosing the `Navigation (TypeScript)` template. This can also be done with `npx create-expo-app ReactJSNativeMobileBoilerplate -t`.
+This app was created with `npx create-expo-app ReactJSNativeMobileAppBoilerplate --template` command and choosing the `Navigation (TypeScript)` template. This can also be done with `npx create-expo-app ReactJSNativeMobileAppBoilerplate -t`.
 
 [See PHP ReactJS Boilerplate](https://github.com/kkamara/php-reactjs-boilerplate).
 
