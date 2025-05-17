@@ -34,17 +34,15 @@ yarn run android
 
 This app was created with `npx create-expo-app ReactJSNativeMobileAppBoilerplate --template` command and choosing the `Navigation (TypeScript)` template. This can also be done with `npx create-expo-app ReactJSNativeMobileAppBoilerplate -t`.
 
-[See PHP ReactJS Boilerplate](https://github.com/kkamara/php-reactjs-boilerplate).
+[See NodeJS ReactJS Boilerplate](https://github.com/kkamara/nodejs-reactjs-boilerplate).
 
 [See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
 
 [See MRVL Web](https://github.com/kkamara/mrvl-web).
 
-[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
+[See NodeJS Docker Skeleton](https://github.com/kkamara/nodejs-docker-skeleton).
 
-[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
-
-[See PHP Scraper](https://github.com/kkamara/php-scraper).
+[See NodeJS Scraper](https://github.com/kkamara/nodejs-scraper).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
