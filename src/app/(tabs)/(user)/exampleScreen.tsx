@@ -20,9 +20,9 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Example Screen</Text>
+      <Text style={styles.title}>Example Screen 1</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text>Welcome to Example Screen.</Text>
+      <Text>Welcome to Example Screen 1.</Text>
       <Text>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
       <Text>Message from provider: {renderMessage()}</Text>
     </View>
