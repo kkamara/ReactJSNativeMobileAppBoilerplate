@@ -2,6 +2,7 @@ import { StyleSheet, } from 'react-native';
 
 import { Text, View, } from '@/components/Themed';
 import { useRouter, } from 'expo-router';
+import Button from '@/components/Button';
 
 export default function TabOneScreen() {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function TabOneScreen() {
       <Text style={styles.title}>Example Screen</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Text>Welcome to Example Screen.</Text>
-      <Text>Click <Text onPress={onClickLink}>here</Text> for Example Screen 2.</Text>
+      <Text>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
     </View>
   );
 }
