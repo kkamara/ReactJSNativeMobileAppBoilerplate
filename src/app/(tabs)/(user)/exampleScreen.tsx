@@ -4,11 +4,18 @@ import { Text, View, } from '@/components/Themed';
 import { useRouter, } from 'expo-router';
 import Button from '@/components/Button';
 
+import { useMessage, } from '@/providers/MessageProvider';
+
 export default function TabOneScreen() {
   const router = useRouter();
+  const { helloWorld, } = useMessage();
 
   const onClickLink = () => {
     router.navigate("/(tabs)/(user)/exampleScreen2");
+  };
+
+  const renderMessage = () => {
+    return helloWorld();
   };
 
   return (
@@ -17,6 +24,7 @@ export default function TabOneScreen() {
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Text>Welcome to Example Screen.</Text>
       <Text>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
+      <Text>Message from provider: {renderMessage()}</Text>
     </View>
   );
 }
