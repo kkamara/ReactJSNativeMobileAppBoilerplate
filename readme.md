@@ -2,7 +2,7 @@
 
 # ReactJSNativeMobileAppBoilerplate
 
-(16-Aug-2024) TypeScript ReactJS Native mobile app with file-based routing.
+(16-Aug-2024) TypeScript ReactJS Native Expo mobile app with file-based routing.
 
 * [Installation](#installation)
 
