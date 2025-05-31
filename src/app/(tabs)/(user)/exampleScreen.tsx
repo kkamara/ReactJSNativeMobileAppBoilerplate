@@ -1,14 +1,30 @@
+import { useEffect, } from 'react';
 import { StyleSheet, } from 'react-native';
-
-import { Text, View, } from '@/components/Themed';
 import { useRouter, } from 'expo-router';
+import { Text, View, } from '@/components/Themed';
 import Button from '@/components/Button';
+import Loading from '@/components/Loading';
 
 import { useMessage, } from '@/providers/MessageProvider';
+import { useHelloFromServer, } from '@/providers/HelloFromServerProvider';
+import { isErrorResponse, } from '@/types';
 
 export default function TabOneScreen() {
   const router = useRouter();
   const { helloWorld, } = useMessage();
+  const {
+    helloFromServer,
+    loading,
+    getHelloFromServer,
+  } = useHelloFromServer();
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
+    getHelloFromServer();
+  };
 
   const onClickLink = () => {
     router.navigate("/(tabs)/(user)/exampleScreen2");
@@ -18,6 +34,19 @@ export default function TabOneScreen() {
     return helloWorld();
   };
 
+  const renderHelloFromServer = () => {
+    if (helloFromServer && true === isErrorResponse(helloFromServer)) {
+      return helloFromServer.error;
+    }
+    return helloFromServer.message;
+  };
+
+  if (loading) {
+    return <View style={styles.container}>
+      <Loading/>
+    </View>
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Example Screen 1</Text>
@@ -25,6 +54,7 @@ export default function TabOneScreen() {
       <Text>Welcome to Example Screen 1.</Text>
       <Text>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
       <Text>Message from provider: {renderMessage()}</Text>
+      <Text>Message from server: {renderHelloFromServer()}</Text>
     </View>
   );
 }

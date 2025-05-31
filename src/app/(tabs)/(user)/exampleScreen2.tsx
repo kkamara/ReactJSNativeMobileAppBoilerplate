@@ -1,7 +1,6 @@
 import { StyleSheet, } from 'react-native';
-
-import { Text, View, } from '@/components/Themed';
 import { useRouter, } from 'expo-router';
+import { Text, View, } from '@/components/Themed';
 import Button from '@/components/Button';
 
 export default function TabOneScreen() {

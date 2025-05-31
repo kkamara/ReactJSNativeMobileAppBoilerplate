@@ -18,9 +18,10 @@
 
 * [NodeJS](https://nodejs.org/en)
 
-* [ReactJS Native Setup Virtual Mobile App](https://reactnative.dev/docs/environment-setup?guide=native&platform=android)
+* [ReactJS Native Setup Virtual Mobile App](https://reactnative.dev/docs/environment-setup)
 
 ```bash
+cp .env.example .env
 yarn install
 ```
 
