@@ -4,7 +4,7 @@ import HelloFromServerProvider from '@/providers/HelloFromServerProvider';
 
 export default function ExampleLayout() {
   return <HelloFromServerProvider>
-    <Tabs screenOptions={{ tabBarStyle: { display: 'none', }, }}>
+    <Tabs backBehavior="history" screenOptions={{ tabBarStyle: { display: 'none', }, }}>
       <Tabs.Screen
         name="exampleScreen"
         options={{
