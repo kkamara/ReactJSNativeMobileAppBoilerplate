@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderColor: "#4582ec",
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 700,
     color: Colors.light.text,
   },
