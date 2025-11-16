@@ -1,4 +1,4 @@
-import { useEffect, } from 'react';
+import { useEffect, useState, } from 'react';
 import { StyleSheet, } from 'react-native';
 import { useRouter, } from 'expo-router';
 import { Text, View, } from '@/components/Themed';
@@ -7,7 +7,7 @@ import Loading from '@/components/Loading';
 
 import { useMessage, } from '@/providers/MessageProvider';
 import { useHelloFromServer, } from '@/providers/HelloFromServerProvider';
-import { isErrorResponse, } from '@/types';
+import { isCustomErrorResponse, } from '@/types';
 
 export default function TabOneScreen() {
   const router = useRouter();
@@ -17,13 +17,30 @@ export default function TabOneScreen() {
     loading,
     getHelloFromServer,
   } = useHelloFromServer();
+  const [error, setError] = useState("");
+  const [helloMessage, setHelloMessage] = useState("");
+
+  const loadData = async () => {
+    getHelloFromServer();
+  };
 
   useEffect(() => {
     loadData();
   }, []);
 
-  const loadData = () => {
-    getHelloFromServer();
+  useEffect(() => {
+    if (helloFromServer && isCustomErrorResponse(helloFromServer)) {
+      setError(helloFromServer?.error || "An error occurred.");
+    } else {
+      setHelloMessage(helloFromServer?.message || "");
+    }
+  }, [helloFromServer]);
+
+  const renderHelloFromServer = () => {
+    if (helloFromServer && true === isCustomErrorResponse(helloFromServer)) {
+      return null;
+    }
+    return helloFromServer.message;
   };
 
   const onClickLink = () => {
@@ -32,13 +49,6 @@ export default function TabOneScreen() {
 
   const renderMessage = () => {
     return helloWorld();
-  };
-
-  const renderHelloFromServer = () => {
-    if (helloFromServer && true === isErrorResponse(helloFromServer)) {
-      return helloFromServer.error;
-    }
-    return helloFromServer.message;
   };
 
   if (loading) {
@@ -51,6 +61,7 @@ export default function TabOneScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Example Screen 1</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      {error && <Text style={[styles.text, styles.errorText]}>{error}</Text>}
       <Text style={styles.text}>Welcome to Example Screen 1.</Text>
       <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
       <Text style={styles.text}>Message from provider: {renderMessage()}</Text>
@@ -83,5 +94,9 @@ const styles = StyleSheet.create({
   },
   serverMessage: {
     width: 300,
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 10,
   },
 });

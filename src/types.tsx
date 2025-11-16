@@ -1,10 +1,19 @@
 export type HelloWorldFunc = () => string;
 
-export type ErrorResponse = {
+export type ServerError = {
+  message?: string;
+};
+
+export const isServerErrorResponse = (x: any): x is CustomError => x &&
+  typeof x === "object" &&
+  false === Array.isArray(x) &&
+  Object.keys(x).includes("message");
+
+export type CustomError = {
   error?: string;
 };
 
-export const isErrorResponse = (x: any): x is ErrorResponse => x &&
+export const isCustomErrorResponse = (x: any): x is CustomError => x &&
   typeof x === "object" &&
   false === Array.isArray(x) &&
   Object.keys(x).includes("error");
@@ -60,10 +69,8 @@ export type RequestOptions = {
   Authorization?: string;
 };
 
-export type HelloFromServer = string;
-
 export type HelloFromServerResponse = {
-  message?: HelloFromServer;
+  message?: string;
 };
 
 export type Loading = boolean;

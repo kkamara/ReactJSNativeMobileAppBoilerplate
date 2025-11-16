@@ -5,21 +5,22 @@ import {
   useState,
 } from "react";
 import {
-  ErrorResponse,
+  CustomError,
   GetHelloFromServer,
   HelloFromServerResponse,
   Loading,
+  ServerError,
 } from "@/types";
 import HttpService from "@/services/HttpService";
 import axios from "axios";
 
 type HelloFromServerType = {
-  helloFromServer: HelloFromServerResponse|ErrorResponse;
+  helloFromServer: HelloFromServerResponse|CustomError;
   loading: Loading;
   getHelloFromServer: GetHelloFromServer;
 };
 
-const defaultErrorResponse = { error: "Not implemented." };
+const defaultErrorResponse = { message: "Not implemented." };
 
 const HelloFromServerContext = createContext<HelloFromServerType>({
   helloFromServer: defaultErrorResponse,
@@ -28,7 +29,7 @@ const HelloFromServerContext = createContext<HelloFromServerType>({
 });
 
 const HelloFromServerProvider = ({ children, }: PropsWithChildren) => {
-  const [helloFromServer, setHelloFromServer] = useState<HelloFromServerResponse|ErrorResponse>(defaultErrorResponse);
+  const [helloFromServer, setHelloFromServer] = useState<HelloFromServerResponse|CustomError>(defaultErrorResponse);
   const [loading, setLoading] = useState(false)
 
   const getHelloFromServer = async (): Promise<void> => {
@@ -45,13 +46,13 @@ const HelloFromServerProvider = ({ children, }: PropsWithChildren) => {
         .then(res => res)
         .catch((err: Error) => err);
       if (response instanceof Error) {
-        if (axios.isAxiosError<ErrorResponse>(response)) {
+        if (axios.isAxiosError<ServerError>(response)) {
           if ("ERR_NETWORK" === response.code) {
             setLoading(false);
             setHelloFromServer({ error: "Server unavailable.", });
           } else {
             setLoading(false);
-            setHelloFromServer({ error: response.response?.data?.error, });
+            setHelloFromServer({ error: response.response?.data?.message, });
           }
         } else {
           setLoading(false);
@@ -64,7 +65,7 @@ const HelloFromServerProvider = ({ children, }: PropsWithChildren) => {
     } catch (err) {
       setLoading(false);
       if (err instanceof Error) {
-        setHelloFromServer({ error: err.message });
+        setHelloFromServer({ message: err.message });
       }
     }
   };
