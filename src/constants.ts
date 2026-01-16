@@ -1,1 +1,0 @@
-export const webURL = process.env.EXPO_PUBLIC_NODEJS_BOILERPLATE_WEB_URL;

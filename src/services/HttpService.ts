@@ -5,7 +5,7 @@ import {
   TokenID,
   RequestOptions,
 } from '@/types';
-import { webURL, } from '@/constants';
+import { webURL, } from '@/constants/Web';
 import storage from '@/storage';
 
 axios.defaults.withCredentials = true;
