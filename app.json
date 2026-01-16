@@ -2,9 +2,9 @@
   "expo": {
     "name": "ReactJSNativeMobileAppBoilerplate",
     "slug": "ReactJSNativeMobileAppBoilerplate",
-    "version": "0.1.0-alpha",
+    "version": "1.0.0-alpha",
     "orientation": "portrait",
-    "icon": "./src/assets/images/icon.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "reactjsnativemobileappboilerplate",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -21,7 +21,8 @@
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
     },
     "web": {
       "bundler": "metro",
