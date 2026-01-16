@@ -51,7 +51,11 @@ export default function TabOneScreen() {
         />
         <Button style={styles.submitButton} onPress={handleFormSubmit} text="Submit"/>
       </View>
-      {finalName && (<Text style={styles.text}>Hello, {finalName}!</Text>)}
+      {finalName && (<Text
+        style={[styles.text, styles.finalText]}
+      >
+        Hello, {finalName}!
+      </Text>)}
     </View>
   );
 }
@@ -90,5 +94,9 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     marginTop: 20,
+  },
+  finalText: {
+    marginTop: 20,
+    fontWeight: 'bold',
   },
 });
