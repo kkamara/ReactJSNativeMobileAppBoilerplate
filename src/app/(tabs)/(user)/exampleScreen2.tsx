@@ -1,13 +1,36 @@
-import { StyleSheet, } from 'react-native';
+import { StyleSheet, TextInput, } from 'react-native';
 import { useRouter, } from 'expo-router';
 import { Text, View, } from '@/components/Themed';
 import Button from '@/components/Button';
+import { useNavigation } from 'expo-router';
+import { useEffect, useState, } from 'react';
 
 export default function TabOneScreen() {
   const router = useRouter();
+  const navigation = useNavigation();
+  const [name, setName] = useState("")
+  const [finalName, setFinalName] = useState("")
+
+  useEffect(() => {
+    return navigation.addListener(
+      "blur",
+      () => {
+        setName("");
+        setFinalName("");
+      }
+    )
+  }, []);
 
   const onClickLink = () => {
     router.navigate("/(tabs)/(user)/exampleScreen");
+  };
+
+  const handleFormSubmit = () => {
+    setFinalName(name);
+  };
+
+  const handleNameChange = (text: string) => {
+    setName(text);
   };
 
   return (
@@ -16,6 +39,19 @@ export default function TabOneScreen() {
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Text style={styles.text}>Welcome to Example Screen 2.</Text>
       <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 1.</Text>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <Text style={styles.text}>Enter your name:</Text>
+      <View style={styles.form}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your Name"
+          keyboardType='default'
+          value={name}
+          onChangeText={handleNameChange}
+        />
+        <Button style={styles.submitButton} onPress={handleFormSubmit} text="Submit"/>
+      </View>
+      {finalName && (<Text style={styles.text}>Hello, {finalName}!</Text>)}
     </View>
   );
 }
@@ -37,5 +73,22 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
+  },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: '80%',
+    paddingHorizontal: 10,
+    marginTop: 10,
+  },
+  form: {
+    display: 'flex',
+    flexDirection: "row",
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  submitButton: {
+    marginTop: 20,
   },
 });
