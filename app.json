@@ -4,7 +4,7 @@
     "slug": "ReactJSNativeMobileAppBoilerplate",
     "version": "1.0.0-alpha",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "scheme": "reactjsnativemobileappboilerplate",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
