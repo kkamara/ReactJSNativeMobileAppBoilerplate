@@ -60,10 +60,6 @@ export default function TabLayout() {
         options={{
           title: 'User',
           headerShown: false,
-          tabBarActiveBackgroundColor: "#fff",
-          tabBarActiveTintColor: "blue",
-          tabBarInactiveTintColor: "#000",
-          tabBarInactiveBackgroundColor: "#fff",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
