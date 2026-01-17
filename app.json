@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "ReactJSNativeMobileAppBoilerplate",
-    "slug": "ReactJSNativeMobileAppBoilerplate",
+    "slug": "reactjsnativemobileappboilerplate",
     "version": "1.0.0-alpha",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
