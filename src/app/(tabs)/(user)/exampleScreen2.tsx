@@ -35,27 +35,29 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Example Screen 2</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text style={styles.text}>Welcome to Example Screen 2.</Text>
-      <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 1.</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text style={styles.text}>Enter your name:</Text>
-      <View style={styles.form}>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your Name"
-          keyboardType='default'
-          value={name}
-          onChangeText={handleNameChange}
-        />
-        <Button style={styles.submitButton} onPress={handleFormSubmit} text="Submit"/>
+        <View style={styles.innerContainer}>
+        <Text style={styles.title}>Example Screen 2</Text>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <Text style={styles.text}>Welcome to Example Screen 2.</Text>
+        <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 1.</Text>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <Text style={styles.text}>Enter your name:</Text>
+        <View style={styles.form}>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Your Name"
+            keyboardType='default'
+            value={name}
+            onChangeText={handleNameChange}
+          />
+          <Button style={styles.submitButton} onPress={handleFormSubmit} text="Submit"/>
+        </View>
+        {finalName && (<Text
+          style={[styles.text, styles.finalText]}
+        >
+          Hello, {finalName}!
+        </Text>)}
       </View>
-      {finalName && (<Text
-        style={[styles.text, styles.finalText]}
-      >
-        Hello, {finalName}!
-      </Text>)}
     </View>
   );
 }
@@ -65,6 +67,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  innerContainer: {
+    alignItems: "flex-start"
   },
   title: {
     fontSize: 24,

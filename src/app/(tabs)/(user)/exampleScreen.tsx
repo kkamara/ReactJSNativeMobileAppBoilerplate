@@ -1,12 +1,12 @@
-import { useEffect, useState, } from 'react';
-import { StyleSheet, } from 'react-native';
-import { useRouter, } from 'expo-router';
-import { Text, View, } from '@/components/Themed';
 import Button from '@/components/Button';
 import Loading from '@/components/Loading';
+import { Text, View, } from '@/components/Themed';
+import { useRouter, } from 'expo-router';
+import { useEffect, useState, } from 'react';
+import { StyleSheet, } from 'react-native';
 
-import { useMessage, } from '@/providers/MessageProvider';
 import { useHelloFromServer, } from '@/providers/HelloFromServerProvider';
+import { useMessage, } from '@/providers/MessageProvider';
 import { isCustomErrorResponse, } from '@/types';
 
 export default function TabOneScreen() {
@@ -59,17 +59,19 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Example Screen 1</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      {error && <Text style={[styles.text, styles.errorText]}>{error}</Text>}
-      <Text style={styles.text}>Welcome to Example Screen 1.</Text>
-      <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
-      <Text style={styles.text}>Message from provider: {renderMessage()}</Text>
-      <Text
-        style={[styles.text, styles.serverMessage]}
-      >
-        Message from server: {renderHelloFromServer()}
-      </Text>
+      <View style={styles.innerContainer}>
+        <Text style={styles.title}>Example Screen 1</Text>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        {error && <Text style={[styles.text, styles.errorText]}>{error}</Text>}
+        <Text style={styles.text}>Welcome to Example Screen 1.</Text>
+        <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
+        <Text style={styles.text}>Message from provider: {renderMessage()}</Text>
+        <Text
+          style={[styles.text, styles.serverMessage]}
+        >
+          Message from server: {renderHelloFromServer()}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -79,6 +81,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  innerContainer: {
+    alignItems: "flex-start"
   },
   title: {
     fontSize: 24,
