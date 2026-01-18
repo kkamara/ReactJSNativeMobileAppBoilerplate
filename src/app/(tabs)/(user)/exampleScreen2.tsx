@@ -1,9 +1,8 @@
-import { StyleSheet, TextInput, } from 'react-native';
-import { useRouter, } from 'expo-router';
-import { Text, View, } from '@/components/Themed';
 import Button from '@/components/Button';
-import { useNavigation } from 'expo-router';
+import { Text, View, } from '@/components/Themed';
+import { useNavigation, useRouter, } from 'expo-router';
 import { useEffect, useState, } from 'react';
+import { StyleSheet, TextInput, } from 'react-native';
 
 export default function TabOneScreen() {
   const router = useRouter();
@@ -22,7 +21,7 @@ export default function TabOneScreen() {
   }, []);
 
   const onClickLink = () => {
-    router.navigate("/(tabs)/(user)/exampleScreen");
+    router.navigate("/exampleScreen");
   };
 
   const handleFormSubmit = () => {

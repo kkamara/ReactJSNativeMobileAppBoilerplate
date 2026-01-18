@@ -44,7 +44,7 @@ export default function TabOneScreen() {
   };
 
   const onClickLink = () => {
-    router.navigate("/(tabs)/(user)/exampleScreen2");
+    router.navigate("/exampleScreen2");
   };
 
   const renderMessage = () => {
