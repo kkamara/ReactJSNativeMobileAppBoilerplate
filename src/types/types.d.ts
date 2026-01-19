@@ -1,24 +1,24 @@
-export type HelloWorldFunc = () => string;
+type HelloWorldFunc = () => string;
 
-export type ServerError = {
+type ServerError = {
   message?: string;
 };
 
-export const isServerErrorResponse = (x: any): x is CustomError => x &&
+const isServerErrorResponse = (x: any): x is CustomError => x &&
   typeof x === "object" &&
   false === Array.isArray(x) &&
   Object.keys(x).includes("message");
 
-export type CustomError = {
+type CustomError = {
   error?: string;
 };
 
-export const isCustomErrorResponse = (x: any): x is CustomError => x &&
+const isCustomErrorResponse = (x: any): x is CustomError => x &&
   typeof x === "object" &&
   false === Array.isArray(x) &&
   Object.keys(x).includes("error");
 
-export type RegisterUserServiceParams = {
+type RegisterUserServiceParams = {
   firstName: string;
   lastName: string;
   dob: string;
@@ -27,7 +27,7 @@ export type RegisterUserServiceParams = {
   passwordConfirmation: string;
 };
 
-export type LoginUserServiceParams = {
+type LoginUserServiceParams = {
   email: string;
   password: string;
 };
@@ -39,42 +39,45 @@ type UserResponse = {
   lastName: string;
   createdAt: string;
   updatedAt: string;
+  isTest: boolean;
+  isAdmin: boolean;
+  dob: string;
 };
 
-export type RegisterResponse = {
+type RegisterResponse = {
   user: UserResponse;
 };
 
-export type LoginResponse = {
+type LoginResponse = {
   data: {
     authToken: string;
     user: UserResponse;
   }
 };
 
-export type LogoutResponse = {
+type LogoutResponse = {
   message: string; 
 };
 
-export type Path = string;
+type Path = string;
 
-export type Item = { [key: string]: any, } | undefined;
+type Item = { [key: string]: any, } | undefined;
 
-export type TokenID = string;
+type TokenID = string;
 
-export type RequestOptions = {
+type RequestOptions = {
   method: string;
   headers: { [key: string]: any };
   data?: Item;
   Authorization?: string;
 };
 
-export type HelloFromServerResponse = {
+type HelloFromServerResponse = {
   message?: string;
 };
 
-export type Loading = boolean;
+type Loading = boolean;
 
-export type GetHelloFromServer = () => Promise<void>;
+type GetHelloFromServer = () => Promise<void>;
 
-export type StorageResponse = {};
+type StorageResponse = {};

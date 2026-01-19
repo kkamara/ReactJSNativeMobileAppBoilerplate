@@ -1,12 +1,5 @@
-import HttpService from './HttpService';
-import { 
-  RegisterUserServiceParams,
-  LoginUserServiceParams,
-  RegisterResponse,
-  LoginResponse,
-  LogoutResponse,
-} from '@/types';
 import storage from '@/storage';
+import HttpService from './HttpService';
 
 export const RegisterUserService = (
   credentials: RegisterUserServiceParams,

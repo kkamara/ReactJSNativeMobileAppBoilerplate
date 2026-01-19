@@ -1,12 +1,6 @@
-import axios, { AxiosResponse, } from 'axios';
-import {
-  Path,
-  Item,
-  TokenID,
-  RequestOptions,
-} from '@/types';
 import { webURL, } from '@/constants/Web';
 import storage from '@/storage';
+import axios, { AxiosResponse, } from 'axios';
 
 axios.defaults.withCredentials = true;
 

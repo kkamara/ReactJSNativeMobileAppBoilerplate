@@ -1,18 +1,11 @@
+import HttpService from "@/services/HttpService";
+import axios from "axios";
 import {
-  PropsWithChildren, 
-  createContext, 
+  PropsWithChildren,
+  createContext,
   useContext,
   useState,
 } from "react";
-import {
-  CustomError,
-  GetHelloFromServer,
-  HelloFromServerResponse,
-  Loading,
-  ServerError,
-} from "@/types";
-import HttpService from "@/services/HttpService";
-import axios from "axios";
 
 type HelloFromServerType = {
   helloFromServer: HelloFromServerResponse|CustomError;

@@ -1,9 +1,8 @@
 import {
-  PropsWithChildren, 
-  createContext, 
+  PropsWithChildren,
+  createContext,
   useContext,
 } from "react";
-import { HelloWorldFunc, } from "@/types";
 
 type MessageType = {
   helloWorld: HelloWorldFunc;
