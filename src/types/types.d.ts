@@ -4,19 +4,9 @@ type ServerError = {
   message?: string;
 };
 
-const isServerErrorResponse = (x: any): x is CustomError => x &&
-  typeof x === "object" &&
-  false === Array.isArray(x) &&
-  Object.keys(x).includes("message");
-
 type CustomError = {
   error?: string;
 };
-
-const isCustomErrorResponse = (x: any): x is CustomError => x &&
-  typeof x === "object" &&
-  false === Array.isArray(x) &&
-  Object.keys(x).includes("error");
 
 type RegisterUserServiceParams = {
   firstName: string;

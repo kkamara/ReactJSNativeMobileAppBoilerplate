@@ -7,6 +7,7 @@ import { StyleSheet, } from 'react-native';
 
 import { useHelloFromServer, } from '@/providers/HelloFromServerProvider';
 import { useMessage, } from '@/providers/MessageProvider';
+import { isCustomErrorResponse, } from '@/typeHandlers';
 
 export default function TabOneScreen() {
   const router = useRouter();
