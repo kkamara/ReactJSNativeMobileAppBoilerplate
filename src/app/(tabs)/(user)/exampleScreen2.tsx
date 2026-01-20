@@ -1,11 +1,10 @@
-import Button from '@/components/Button';
+import ButtonOpacity from '@/components/ButtonOpacity';
 import { Text, View, } from '@/components/Themed';
-import { useNavigation, useRouter, } from 'expo-router';
+import { Link, useNavigation } from 'expo-router';
 import { useEffect, useState, } from 'react';
 import { StyleSheet, TextInput, } from 'react-native';
 
 export default function TabOneScreen() {
-  const router = useRouter();
   const navigation = useNavigation();
   const [name, setName] = useState("")
   const [finalName, setFinalName] = useState("")
@@ -20,10 +19,6 @@ export default function TabOneScreen() {
     )
   }, []);
 
-  const onClickLink = () => {
-    router.navigate("/exampleScreen");
-  };
-
   const handleFormSubmit = () => {
     setFinalName(name);
   };
@@ -34,11 +29,17 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-        <View style={styles.innerContainer}>
+      <View style={styles.innerContainer}>
         <Text style={styles.title}>Example Screen 2</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <Text style={styles.text}>Welcome to Example Screen 2.</Text>
-        <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 1.</Text>
+        <Text style={styles.text}>
+          Click
+          <Link href="/exampleScreen" asChild>
+            <ButtonOpacity text="here" />
+          </Link>
+          for Example Screen 1.
+        </Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <Text style={styles.text}>Enter your name:</Text>
         <View style={styles.form}>
@@ -49,7 +50,7 @@ export default function TabOneScreen() {
             value={name}
             onChangeText={handleNameChange}
           />
-          <Button style={styles.submitButton} onPress={handleFormSubmit} text="Submit"/>
+          <ButtonOpacity style={styles.submitButton} onPress={handleFormSubmit} text="Submit" />
         </View>
         {finalName && (<Text
           style={[styles.text, styles.finalText]}

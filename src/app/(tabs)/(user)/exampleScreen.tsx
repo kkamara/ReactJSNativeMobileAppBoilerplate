@@ -1,16 +1,14 @@
-import Button from '@/components/Button';
+import ButtonOpacity from '@/components/ButtonOpacity';
 import Loading from '@/components/Loading';
 import { Text, View, } from '@/components/Themed';
-import { useRouter, } from 'expo-router';
-import { useEffect, useState, } from 'react';
-import { StyleSheet, } from 'react-native';
-
 import { useHelloFromServer, } from '@/providers/HelloFromServerProvider';
 import { useMessage, } from '@/providers/MessageProvider';
 import { isCustomErrorResponse, } from '@/typeHandlers';
+import { Link, } from 'expo-router';
+import { useEffect, useState, } from 'react';
+import { StyleSheet, } from 'react-native';
 
 export default function TabOneScreen() {
-  const router = useRouter();
   const { helloWorld, } = useMessage();
   const {
     helloFromServer,
@@ -43,17 +41,13 @@ export default function TabOneScreen() {
     return helloFromServer.message;
   };
 
-  const onClickLink = () => {
-    router.navigate("/exampleScreen2");
-  };
-
   const renderMessage = () => {
     return helloWorld();
   };
 
   if (loading) {
     return <View style={styles.container}>
-      <Loading/>
+      <Loading />
     </View>
   }
 
@@ -64,7 +58,13 @@ export default function TabOneScreen() {
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         {error && <Text style={[styles.text, styles.errorText]}>{error}</Text>}
         <Text style={styles.text}>Welcome to Example Screen 1.</Text>
-        <Text style={styles.text}>Click <Button onPress={onClickLink} text="here"/> for Example Screen 2.</Text>
+        <Text style={styles.text}>
+          Click
+          <Link href="/exampleScreen2" asChild>
+            <ButtonOpacity text="here" />
+          </Link>
+          for Example Screen 2.
+        </Text>
         <Text style={styles.text}>Message from provider: {renderMessage()}</Text>
         <Text
           style={[styles.text, styles.serverMessage]}
