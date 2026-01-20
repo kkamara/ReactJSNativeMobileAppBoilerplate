@@ -16,7 +16,7 @@ export default function TabOneScreen() {
         setName("");
         setFinalName("");
       }
-    )
+    );
   }, []);
 
   const handleFormSubmit = () => {
