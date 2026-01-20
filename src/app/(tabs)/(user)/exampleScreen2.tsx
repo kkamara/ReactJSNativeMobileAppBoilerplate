@@ -6,8 +6,8 @@ import { StyleSheet, TextInput, } from 'react-native';
 
 export default function TabOneScreen() {
   const navigation = useNavigation();
-  const [name, setName] = useState("")
-  const [finalName, setFinalName] = useState("")
+  const [name, setName] = useState("");
+  const [finalName, setFinalName] = useState("");
 
   useEffect(() => {
     return navigation.addListener(
