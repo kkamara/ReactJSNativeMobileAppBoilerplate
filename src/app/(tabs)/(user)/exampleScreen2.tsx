@@ -50,7 +50,12 @@ export default function TabOneScreen() {
             value={name}
             onChangeText={handleNameChange}
           />
-          <ButtonOpacity style={styles.submitButton} onPress={handleFormSubmit} text="Submit" />
+          <ButtonOpacity
+            style={styles.submitButton}
+            onPress={handleFormSubmit}
+            text="Submit"
+            special
+          />
         </View>
         {finalName && (<Text
           style={[styles.text, styles.finalText]}
