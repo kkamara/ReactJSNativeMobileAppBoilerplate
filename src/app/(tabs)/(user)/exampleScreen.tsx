@@ -16,7 +16,6 @@ export default function TabOneScreen() {
     getHelloFromServer,
   } = useHelloFromServer();
   const [error, setError] = useState("");
-  const [helloMessage, setHelloMessage] = useState("");
 
   const loadData = async () => {
     getHelloFromServer();
@@ -29,8 +28,6 @@ export default function TabOneScreen() {
   useEffect(() => {
     if (helloFromServer && isCustomErrorResponse(helloFromServer)) {
       setError(helloFromServer?.error || "An error occurred.");
-    } else {
-      setHelloMessage(helloFromServer?.message || "");
     }
   }, [helloFromServer]);
 
