@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   innerContainer: {
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    width: "90%",
   },
   title: {
     fontSize: 24,
